@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Primary: #bae4d1
+ * Background: #FFF3F2
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: none;
+}
+
+.app {
+    background-color: #FFF3F2;
+}
