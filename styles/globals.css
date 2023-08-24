@@ -2,17 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Primary: #bae4d1
- * Background: #FFF3F2
-
+/* COLOURS
+ * Primary: #bae4d1
+ * Background: #ffeeec
 */
 
 * {
     margin: 0;
     padding: 0;
-    overflow: none;
+    color: white
+    /* background-color: #f0f0f0; */
 }
 
-.app {
-    background-color: #FFF3F2;
+.ikigai-background {
+    background-color: #fff7f5;
+    background-image: url('../public/image/ikigai-landscape.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
