@@ -10,7 +10,9 @@
 * {
     margin: 0;
     padding: 0;
-    color: white
+    color: white;
+    font-weight: 400;
+    letter-spacing: -0.01rem;
     /* background-color: #f0f0f0; */
 }
 
@@ -19,4 +21,10 @@
     background-image: url('../public/image/ikigai-landscape.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* NAVBAR */
+
+.navbar-container {
+    @apply flex justify-between items-center py-8 mx-[2rem] md:mx-[8rem]
 }

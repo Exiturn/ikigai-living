@@ -3,16 +3,16 @@ import Images from "@utils/images";
 
 const Hero = () => {
   return (
-    <section className="min-h-[120vh] overflow-hidden">
+    <section className="min-h-[100vh] overflow-hidden">
       <div className="container">
-        <h1 className="text-8xl mx-[7.5rem]">IKIGAI</h1>
+        <h1 className="text-8xl mx-[1.5rem] md:mx-[7.5rem]">IKIGAI</h1>
         <h2>Japanese Inspired</h2>
         <h2>Eco-concious</h2>
         <h2>Homeware</h2>
         <div className="flex flex-row flex-wrap">
           {}
 
-          <Image
+          {/* <Image
           src={Images[0]}
           width={400}
           height={400}
@@ -35,7 +35,7 @@ const Hero = () => {
           width={400}
           height={400}
           alt="loader image 4"
-        />
+        /> */}
         </div>
       </div>
     </section>
