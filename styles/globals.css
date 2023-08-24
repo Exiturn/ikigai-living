@@ -11,7 +11,8 @@
     margin: 0;
     padding: 0;
     color: white;
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 1.25rem;
     letter-spacing: -0.01rem;
     /* background-color: #f0f0f0; */
 }

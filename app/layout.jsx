@@ -1,5 +1,6 @@
 import "@styles/globals.css";
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 
 import Navbar from "@components/navbar/Navbar";
 import Background from "@components/background/Background";
@@ -17,13 +18,21 @@ const acid = localFont({
   src: "../fonts/FFFAcidGroteskVariableTRIALVF.ttf"
 })
 
+const odasans = localFont({
+  src: "../fonts/Odasans-medium.ttf"
+})
+
+const neue = localFont({
+  src: "../fonts/NeueHaasDisplayLight.ttf"
+})
+
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body>
+      <body className={`${odasans.className}`}>
         <Background />
         <Navbar />
-        <main className={`app ${supreme.className}`}>{children}</main>
+        <main className={`app`}>{children}</main>
       </body>
     </html>
   );
