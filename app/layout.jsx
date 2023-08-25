@@ -29,7 +29,7 @@ const neue = localFont({
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${odasans.className}`}>
+      <body className={`${neue.className}`}>
         <Background />
         <Navbar />
         <main className={`app`}>{children}</main>
