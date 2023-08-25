@@ -18,10 +18,6 @@ const acid = localFont({
   src: "../fonts/FFFAcidGroteskVariableTRIALVF.ttf"
 })
 
-const odasans = localFont({
-  src: "../fonts/Odasans-medium.ttf"
-})
-
 const neue = localFont({
   src: "../fonts/NeueHaasDisplayLight.ttf"
 })
