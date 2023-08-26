@@ -10,24 +10,23 @@
 * {
     margin: 0;
     padding: 0;
-    color: white;
-    font-size: 1.25rem;
+    color: black;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.08125rem;
-    /* background-color: #f0f0f0; */
 }
 
 .ikigai-background {
-    background-color: #fff7f5;
-    background-image: url('../public/image/ikigai-landscape.jpg');
-    background-size: cover;
+    background-color: #f0f0f0;
+    background-image: url('../public/image/ikigai-background.jpg');
+    background-size: fill;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* NAVBAR */
 
 .navbar-container {
-    @apply flex justify-between items-center py-8 mx-[2rem] md:mx-[8rem]
+    @apply flex justify-between items-center py-8 px-6 bg-[#D9D9D9]
 }

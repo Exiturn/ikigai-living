@@ -10,10 +10,6 @@ export const metadata = {
   description: "The Japanese Inspired Eco-conscious homeware store",
 };
 
-const neue = localFont({
-  src: "../fonts/NeueHaasDisplayLight.ttf"
-})
-
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap'
@@ -22,10 +18,10 @@ const inter = Inter({
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        <Background />
+      <body className={`${inter.className} bg-[#f0f0f0]`}>
         <Navbar />
-        <main className={`app`}>{children}</main>
+        <Background />
+        <main className={`app ikigai-background z-10`}>{children}</main>
       </body>
     </html>
   );

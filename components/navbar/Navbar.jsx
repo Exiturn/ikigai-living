@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import "@components/navbar/styles.module.css";
 
+import Images from "@utils/images";
 
 const navItems = [
   {
@@ -39,19 +41,20 @@ const Navbar = () => {
 
   return (
     <nav className="navbar-container">
-      <div className="flex items-end gap-x-2">
-        <Link href="/" className="text-[1.75rem] xl:text-[2.5rem] cursor-pointer">
+      <div className="flex items-center gap-x-2">
+        <Image src={Images[6]} width={50} height={50} alt="Icon"/>
+        <Link href="/" className="text-[1.75rem] xl:text-[3.5rem] cursor-pointer">
           IKIGAI LIVING
         </Link>
       </div>
 
-      <ul className="hidden lg:flex justify-self-end items-center gap-x-[2rem]">
+      <ul className="hidden lg:flex justify-self-end items-center gap-x-[2rem] text-[1.625rem]">
         {navItems.map((item, index) => (
           <Link
             href={item.href}
-            target={item.name === "Shop Now" ? "_blank" : ""}
+            target={item.name === "Shop Now" && "_blank"}
             key={item.name}
-            className={`relative cursor-pointer transition-colors hover:text-black hover:drop-shadow-xl ease-in-out duration-150
+            className={`relative cursor-pointer transition-colors hover:text-white hover:drop-shadow-xl ease-in-out duration-150
             ${index === 4 ? "hidden" : ""}
             ${item.href === path && "text-black"}`}
           >
@@ -69,7 +72,7 @@ const Navbar = () => {
       <Link
         href="https://www.ikigailiving.co.uk/s/shop"
         target="_blank"
-        className="hidden lg:block cursor-pointer transition-colors hover:text-black hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem]"
+        className="hidden lg:block cursor-pointer transition-colors hover:text-white hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem]"
       >
         Shop Now
       </Link>
