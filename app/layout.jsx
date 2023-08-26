@@ -10,22 +10,19 @@ export const metadata = {
   description: "The Japanese Inspired Eco-conscious homeware store",
 };
 
-const supreme = localFont({
-    src: "../fonts/Supreme-Variable.ttf",
-})
-
-const acid = localFont({
-  src: "../fonts/FFFAcidGroteskVariableTRIALVF.ttf"
-})
-
 const neue = localFont({
   src: "../fonts/NeueHaasDisplayLight.ttf"
 })
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap'
+});
+
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${neue.className}`}>
+      <body className={`${inter.className}`}>
         <Background />
         <Navbar />
         <main className={`app`}>{children}</main>
