@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import "@components/navbar/styles.module.css";
+import { AiOutlineMenu } from "react-icons/ai";
 
+import "@components/navbar/styles.module.css";
 import Images from "@utils/images";
 
 const navItems = [
@@ -39,43 +41,56 @@ const navItems = [
 const Navbar = () => {
   const path = usePathname();
 
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    console.log(isActive)
+  }, [isActive])
+
   return (
     <nav className="navbar-container">
-      <div className="flex items-center gap-x-2">
-        <Image src={Images[6]} width={50} height={50} alt="Icon"/>
-        <Link href="/" className="text-[1.75rem] xl:text-[3.5rem] cursor-pointer">
-          IKIGAI LIVING
+      
+      {/* Branding & Logo */}
+      <div className="flex items-center gap-x-2 z-20">
+        <Image className="hidden md:flex" src={Images[6]} width={50} height={50} alt="Icon"/>
+        <Link href="/" className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3">
+          IKIGAI <span className="lg:hidden xl:flex">LIVING</span>
         </Link>
       </div>
-
-      <ul className="hidden lg:flex justify-self-end items-center gap-x-[2rem] text-[1.625rem]">
+      
+      {/* Mobile Menu Icon */}
+      <AiOutlineMenu className="block lg:hidden cursor-pointer" size={25} onClick={() => setIsActive(!isActive)}/>
+      
+      {/* Desktop Nav */}
+      <ul className="hidden lg:flex justify-between items-center gap-[1rem] xl:gap-x-[2rem] text-[1.625rem]">
         {navItems.map((item, index) => (
           <Link
             href={item.href}
-            target={item.name === "Shop Now" && "_blank"}
+            target={item.name === "Shop Now" ? "_blank" : false}
             key={item.name}
-            className={`relative cursor-pointer transition-colors hover:text-white hover:drop-shadow-xl ease-in-out duration-150
+            className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150
             ${index === 4 ? "hidden" : ""}
-            ${item.href === path && "text-black"}`}
+            ${item.href === path && "text-[#ED1B24]"}`}
           >
             {item.href === path && (
               <motion.span
                 layoutId="underline"
-                className="absolute left-0 top-full block h-[1.25px] w-full bg-black mt-1"
+                className="absolute left-0 top-full block h-[2px] w-full bg-[#ED1B24] mt-1"
               />
             )}
             {item.name}
           </Link>
         ))}
       </ul>
-
+      
+      {/* Shop Link */}
       <Link
         href="https://www.ikigailiving.co.uk/s/shop"
         target="_blank"
-        className="hidden lg:block cursor-pointer transition-colors hover:text-white hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem]"
+        className="hidden lg:block text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem]"
       >
-        Shop Now
-      </Link>
+        Shop Now 
+      </Link>     
     </nav>
   );
 };
