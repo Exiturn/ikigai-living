@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import "@components/navbar/styles.module.css";
 import Images from "@utils/images";
@@ -81,6 +81,26 @@ const Navbar = () => {
             {item.name}
           </Link>
         ))}
+      </ul>
+
+      {/* Mobile Nav Menu */}
+      <ul className={`fixed h-[100vh] w-full overflow-x-hidden left-0 top-0 border-r border-r-gray-900 bg-white transform transition-all duration-500 z-50
+      ${
+        !isActive
+          ? "translate-y-[-100%]"
+          : "translate-x-0 lg:translate-x-[-100%]"
+      }
+      `}>
+          <ul className="text-black text-[5rem]">
+            1
+          </ul>
+          <ul className="text-black">
+            1
+          </ul>
+          <ul className="text-black">
+            1
+          </ul>
+          <AiOutlineClose className="cursor-pointer color-white" size={50} onClick={() => setIsActive(!isActive)}/>
       </ul>
       
       {/* Shop Link */}
