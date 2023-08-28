@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -44,29 +44,41 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    console.log(isActive)
-  }, [isActive])
+    console.log(isActive);
+  }, [isActive]);
 
   return (
     <nav className="navbar-container">
-      
       {/* Branding & Logo */}
       <div className="flex items-center gap-x-2 z-20">
-        <Image className="hidden md:flex" src={Images[6]} width={50} height={50} alt="Icon"/>
-        <Link href="/" className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3">
+        <Image
+          className="hidden md:flex"
+          src={Images[6]}
+          width={50}
+          height={50}
+          alt="Icon"
+        />
+        <Link
+          href="/"
+          className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3"
+        >
           IKIGAI <span className="lg:hidden xl:flex">LIVING</span>
         </Link>
       </div>
-      
+
       {/* Mobile Menu Icon */}
-      <AiOutlineMenu className="block lg:hidden cursor-pointer" size={25} onClick={() => setIsActive(!isActive)}/>
-      
+      <AiOutlineMenu
+        className="block lg:hidden cursor-pointer"
+        size={25}
+        onClick={() => setIsActive(!isActive)}
+      />
+
       {/* Desktop Nav */}
       <ul className="hidden lg:flex justify-between items-center gap-[1rem] xl:gap-x-[2rem] text-[1.625rem]">
         {navItems.map((item, index) => (
           <Link
             href={item.href}
-            target={item.name === "Shop Now" ? "_blank" : false}
+            target={item.name === "Shop Now" && "_blank"}
             key={item.name}
             className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150
             ${index === 4 ? "hidden" : ""}
@@ -84,33 +96,61 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile Nav Menu */}
-      <ul className={`fixed h-[100vh] w-full overflow-x-hidden left-0 top-0 border-r border-r-gray-900 bg-white transform transition-all duration-500 z-50
+      <ul
+        className={`fixed h-[100vh] w-full overflow-x-hidden left-0 top-0 border-r border-r-gray-900 bg-white transform transition-all 
+      duration-500 z-50 flex flex-col justify-between items-center text-[2.5rem] md:text-[4rem]
       ${
         !isActive
           ? "translate-y-[-100%]"
-          : "translate-x-0 lg:translate-x-[-100%]"
+          : "translate-y-0 lg:translate-y-[-100%]"
       }
-      `}>
-          <ul className="text-black text-[5rem]">
-            1
-          </ul>
-          <ul className="text-black">
-            1
-          </ul>
-          <ul className="text-black">
-            1
-          </ul>
-          <AiOutlineClose className="cursor-pointer color-white" size={50} onClick={() => setIsActive(!isActive)}/>
+      `}
+      >
+        <div className="flex flex-row justify-between items-center w-full px-4">
+          <Link
+            href="/"
+            className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3"
+            onClick={() => setIsActive(!isActive)}
+          >
+            IKIGAI <span className="lg:hidden xl:flex">LIVING</span>
+          </Link>
+          <AiOutlineClose
+            className="cursor-pointer color-white"
+            size={35}
+            onClick={() => setIsActive(!isActive)}
+          />
+        </div>
+        <div className="flex flex-col justify-center items-center place-self-center gap-y-5">
+          {navItems.map((item, index) => (
+            <Link
+              href={item.href}
+              onClick={() => setIsActive(!isActive)}
+              target={item.name === "Shop Now" && "_blank"}
+              key={item.name}
+              className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 text-center
+            ${index === 4 ? "hidden" : ""}`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+        <Link
+          href="https://www.ikigailiving.co.uk/s/shop"
+          target="_blank"
+          className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem] mb-10"
+        >
+          Shop Now
+        </Link>
       </ul>
-      
+
       {/* Shop Link */}
       <Link
         href="https://www.ikigailiving.co.uk/s/shop"
         target="_blank"
         className="hidden lg:block text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem]"
       >
-        Shop Now 
-      </Link>     
+        Shop Now
+      </Link>
     </nav>
   );
 };
