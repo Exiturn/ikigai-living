@@ -1,9 +1,11 @@
-import React from 'react'
+import Events from "@components/events/Events"
 
-const Events = () => {
+const EventsPage = () => {
   return (
-    <section className='w-full min-h-[100vh] px-[2rem] md:px-[8rem]'>Events</section>
+    <div>
+      <Events />
+    </div>
   )
 }
 
-export default Events
+export default EventsPage

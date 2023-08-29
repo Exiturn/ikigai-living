@@ -9,6 +9,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import "@components/navbar/styles.module.css";
 import Images from "@utils/images";
+import Background from "@components/background/Background";
 
 const navItems = [
   {
@@ -43,24 +44,26 @@ const Navbar = () => {
 
   const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    console.log(isActive);
-  }, [isActive]);
+  useEffect(() => {}, [isActive]);
 
   return (
     <nav className="navbar-container">
       {/* Branding & Logo */}
       <div className="flex items-center gap-x-2 z-20">
-        <Image
+        <motion.img
+          whileHover={{
+            rotateZ: 180,
+            transition: { duration: 0.5, ease: "easeInOut" },
+          }}
           className="hidden md:flex"
-          src={Images[6]}
           width={50}
           height={50}
+          src="/image/icon.svg"
           alt="Icon"
         />
         <Link
           href="/"
-          className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3"
+          className="text-[1.5rem] md:text-[2.5rem] cursor-pointer flex gap-x-3"
         >
           IKIGAI <span className="lg:hidden xl:flex">LIVING</span>
         </Link>
@@ -74,7 +77,7 @@ const Navbar = () => {
       />
 
       {/* Desktop Nav */}
-      <ul className="hidden lg:flex justify-between items-center gap-[1rem] xl:gap-x-[2rem] text-[1.625rem]">
+      <ul className="hidden lg:flex justify-between items-center gap-[1rem] xl:gap-x-[2rem] text-[1.25rem]">
         {navItems.map((item, index) => (
           <Link
             href={item.href}
@@ -97,8 +100,8 @@ const Navbar = () => {
 
       {/* Mobile Nav Menu */}
       <ul
-        className={`fixed h-[100vh] w-full overflow-x-hidden left-0 top-0 border-r border-r-gray-900 bg-white transform transition-all 
-      duration-500 z-50 flex flex-col justify-between items-center text-[2.5rem] md:text-[4rem]
+        className={`fixed h-[100vh] w-full overflow-x-hidden left-0 top-0 border-r border-r-gray-900 bg-[#f4f4f4] transform transition-all 
+        duration-500 z-50 flex flex-col justify-between items-center
       ${
         !isActive
           ? "translate-y-[-100%]"
@@ -106,7 +109,9 @@ const Navbar = () => {
       }
       `}
       >
-        <div className="flex flex-row justify-between items-center w-full px-4">
+        <Background />
+
+        <div className="flex flex-row justify-between items-center w-full px-4 mt-10 relative">
           <Link
             href="/"
             className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3"
@@ -137,7 +142,7 @@ const Navbar = () => {
         <Link
           href="https://www.ikigailiving.co.uk/s/shop"
           target="_blank"
-          className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem] mb-10"
+          className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] mb-10"
         >
           Shop Now
         </Link>
@@ -147,7 +152,7 @@ const Navbar = () => {
       <Link
         href="https://www.ikigailiving.co.uk/s/shop"
         target="_blank"
-        className="hidden lg:block text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[1.625rem]"
+        className="hidden lg:block text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] text-[2rem]"
       >
         Shop Now
       </Link>
