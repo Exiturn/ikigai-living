@@ -1,6 +1,6 @@
 import "@styles/globals.css";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Inter, Caveat, Gluten } from "next/font/google";
 import Image from "next/image";
 import Images from "@utils/images";
 
@@ -17,10 +17,15 @@ const inter = Inter({
   display: 'swap'
 });
 
+const gluten = Gluten({
+  subsets: ['latin'],
+  display: 'swap'
+});
+
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#f0f0f0]`}>
+      <body className={`${gluten.className} bg-[#f0f0f0]`}>
         <Navbar />
         <div className="hidden md:block">
           <Background />
