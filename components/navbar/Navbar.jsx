@@ -115,7 +115,7 @@ const Navbar = () => {
           <div className="flex flex-row justify-between items-center w-full px-4 mt-10 relative">
             <Link
               href="/"
-              className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3"
+              className="text-[2rem] md:text-[3.5rem] cursor-pointer flex gap-x-3 mt-1"
               onClick={() => setIsActive(!isActive)}
             >
               IKIGAI <span className="lg:hidden xl:flex">LIVING</span>
@@ -134,7 +134,7 @@ const Navbar = () => {
                   onClick={() => setIsActive(!isActive)}
                   target={item.name === "Shop Now" && "_blank"}
                   key={item.name}
-                  className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 text-center text-[2rem]
+                  className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 text-center text-[1.5rem]
                   ${index === 4 ? "hidden" : ""}`}
                 >
                   {item.name}
@@ -145,7 +145,7 @@ const Navbar = () => {
           <Link
             href="https://www.ikigailiving.co.uk/s/shop"
             target="_blank"
-            className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] mb-40 text-[2rem]"
+            className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] mb-40 text-[1.5rem]"
           >
             Shop Now
           </Link>
