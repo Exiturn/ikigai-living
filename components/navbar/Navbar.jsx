@@ -134,8 +134,8 @@ const Navbar = () => {
                   onClick={() => setIsActive(!isActive)}
                   target={item.name === "Shop Now" && "_blank"}
                   key={item.name}
-                  className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 text-center
-            ${index === 4 ? "hidden" : ""}`}
+                  className={`relative cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 text-center text-[2rem]
+                  ${index === 4 ? "hidden" : ""}`}
                 >
                   {item.name}
                 </Link>
@@ -145,7 +145,7 @@ const Navbar = () => {
           <Link
             href="https://www.ikigailiving.co.uk/s/shop"
             target="_blank"
-            className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] mb-10"
+            className="text-end cursor-pointer transition-colors hover:text-[#ED1B24] hover:drop-shadow-xl ease-in-out duration-150 underline underline-offset-[0.5rem] mb-40 text-[2rem]"
           >
             Shop Now
           </Link>
